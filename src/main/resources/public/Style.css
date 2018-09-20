@@ -1,0 +1,230 @@
+.product{
+    margin-left: 1.5em;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 5px;
+    width: 200px;
+}
+.product:hover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    z-index: 1;
+    width: 230px;
+}
+.productlist{
+    margin: 2em;
+}
+.productpage{
+    margin: 2em;
+    height: 500px;
+}
+.mini{
+    margin-left: 1.5em;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 5px;
+    width: 133px;
+}
+.mini:hover{
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    z-index: 1;
+    width: 134px;
+}
+.bigone{
+    margin-left: 1.5em;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 5px;
+    width: 400px;
+}
+
+#imagenproduct{
+    float: left;
+    width: 500px;
+}
+
+#imagenesNueva{
+    float: left;
+    width: 500px;
+}
+
+#infoNuevo{
+    margin-top: 5em;
+    float: left;
+    width: 800px;
+}
+
+#descripcion{
+    float: left;
+    width: 600px;
+    margin-top: 7em;
+    text-align: justify;
+}
+#agregar{
+    color: white;
+    background-color: black;
+    border-radius: 12px;
+    float: left;
+    width: 250px;
+    border: 1px solid white;
+    padding: 2em;
+    margin-left: 4em;
+    margin-top: 7em;
+    text-align: justify;
+}
+#cant{
+    width: 50px;
+    float: right;
+}
+
+#comSection{
+    float: left;
+    margin: 2em;
+    padding: 2em;
+    border-radius: 12px;
+    border:1px solid white;
+    width: 1050px;
+    color: white;
+    background-color: black;
+}
+
+.comment{
+    float:left;
+    padding: 2em;
+    text-align: justify;
+}
+
+#avatar{
+    border-radius: 50%;
+    height: 2em;
+    width: 2em;
+}
+
+#signavatar{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+}
+
+#perfavatar{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 5em;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+#perfil{
+    margin: 2em;
+}
+
+#perfportada{
+    width: 100%;
+    border-radius: 12px;
+}
+
+#perfimag{
+    padding: 1em;
+    margin: 2em;
+    width: 500px;
+    float: left;
+    border-radius: 12px;
+    color: white;
+    background-color: black
+}
+#perfinf{
+    padding: 1em;
+    margin: 2em;
+    width: 500px;
+    float: left;
+    border-radius: 12px;
+}
+
+#enter{
+    margin: 15em;
+    width: 1000px;
+    border-radius: 12px;
+    background-color: white;
+    border:1px solid whitesmoke;
+}
+
+#signuppart{
+    width: 600px;
+    float: left;
+    margin:1em;
+    border-right: 1px solid gray;
+}
+
+#loginpart{
+    width: 300px;
+    float: right;
+    margin-top: 3em;
+    margin-right: 3em;
+}
+
+#imgsign{
+    margin-top: 3em;
+    margin-left: 2em;
+    float: left;
+    width: 200px;
+}
+
+#datasign{
+    margin-right: 2em;
+    float: right;
+    width: 300px;
+}
+
+#listacarrito{
+    margin: 2em;
+}
+
+.carrito{
+    padding: 1em;
+    border-radius: 12px;
+    margin: 1em;
+    border: 1px solid white;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    width: 47%;
+    float: left;
+}
+
+.imgproduct{
+    height: 160px;
+    border-radius: 12px;
+}
+
+.infcarr{
+    width: 100px;
+    border-radius: 12px;
+    margin: 1em;
+    float: left;
+}
+
+.totalprice{
+    width: 80px;
+    border-radius: 12px;
+    margin: 1em;
+    float: left;
+}
+.pago{
+    width: 100px;
+    border-radius: 12px;
+    margin: 1em;
+    float: left;
+}
+
+.mispro{
+    padding: 1em;
+    border-radius: 12px;
+    margin: 1em;
+    border: 1px solid white;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    width: 30%;
+    float: left;
+}
+
+.mispro:hover{
+    width: 31%;
+    box-shadow: 0 0 2px 1px rgba(0, 191, 255, 0.884);
+}
