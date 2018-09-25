@@ -18,6 +18,7 @@ package com.example;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,6 +45,9 @@ public class Main {
   @Value("${spring.datasource.url}")
   private String dbUrl;
 
+  @Autowired
+  private DataSource dataSource;
+
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
   }
@@ -55,7 +59,7 @@ public class Main {
 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
-    try (Connection connection = getConnection()) {
+    try (Connection connection = dataSource.getConnection()) {
       Statement stmt = connection.createStatement();
 
       stmt.executeUpdate("CREATE TABLE IF NOT EXISTS ticks (tick timestamp)");
@@ -89,15 +93,14 @@ public class Main {
   }
 
   private static Connection getConnection() throws URISyntaxException, SQLException {
-    System.out.println(System.getenv("JAWSDB_URL"));
-    URI jdbUri = new URI(System.getenv("JAWSDB_URL"));
+      URI jdbUri = new URI(System.getenv("JAWSDB_URL"));
 
-    String username = jdbUri.getUserInfo().split(":")[0];
-    String password = jdbUri.getUserInfo().split(":")[1];
-    String port = String.valueOf(jdbUri.getPort());
-    String jdbUrl = "jdbc:mysql://" + jdbUri.getHost() + ":" + port + jdbUri.getPath();
+      String username = jdbUri.getUserInfo().split(":")[0];
+      String password = jdbUri.getUserInfo().split(":")[1];
+      String port = String.valueOf(jdbUri.getPort());
+      String jdbUrl = "jdbc:mysql://" + jdbUri.getHost() + ":" + port + jdbUri.getPath();
 
-    return DriverManager.getConnection(jdbUrl, username, password);
+      return DriverManager.getConnection(jdbUrl, username, password);
   }
 
 }
