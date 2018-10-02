@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Indie Flower';
+}
+html, body{
+    height: 100%;
+}
+
+a, a h6{
+    color: #000;
+}
+a:hover, a h6:hover{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgba(240, 168, 110, 0.897);
+}
+
+.verticalAlign{
+    margin-top: 8%;
+    padding: 2%;
+    border: 0.8px #17a2b8 solid;
+    border-radius: 15px;
+}
+
+.inclinacion-fondo h1{
+    font-style: italic;
+    font-weight: 600;
+    text-align: center;
+    font-size: 55px;
+    margin-top: 1%;
+}
+
+hr{
+    margin: 0;
+    border-width: 3px;
+    border-color: rgba(240, 168, 110, 0.897);;
+}
+
+.fabri-btn{
+    border: 0px;
+    background-color: #8099af;
+}
+
+.cat-lista li{
+    list-style: none;
+}
+
+.cat-lista li a:hover{
+    color: rgba(240, 168, 110, 0.897);
+}
+
+.articulosGrid{
+    margin-left: 20%;
+    background-color: #e3f2fd; 
+}
+
+.art-img-container{
+    max-width: 640px;
+    max-height: 550px;
+    position: relative;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    overflow: hidden;
+}
+
+.row-articulo{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    padding: 0px;
+    margin: 0;
+}
+
+.art-img{
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.art-img-indicador{
+    display: flex;
+    justify-content: center;
+}
+
+.art-img-indicador-wrap{
+    height: 76px;
+    height: 76px;
+    float: left;
+}
+
+.priceTag{
+    font-size: 72px;
+    position: relative;
+}
