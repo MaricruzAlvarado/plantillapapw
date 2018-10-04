@@ -35,7 +35,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import com.example.UserJDBCTemplate;
 
 @Controller
 @SpringBootApplication
@@ -46,6 +49,29 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+    
+    UserJDBCTemplate userTemplate = new UserJDBCTemplate();
+    userTemplate.setDataSource(getConnection());
+
+    userTemplate.create("Alberto", 30);
+    userTemplate.create("Anthony", 22);
+    userTemplate.create("Ricky", 20);
+
+    List<User> users = userTemplate.listUsers();
+    
+    for (User u : users) {
+      System.out.print("ID : " + u.getId());
+      System.out.print(", Nombre : " + u.getName());
+      System.out.println(", Edad : " + u.getAge());
+    }
+    
+    userTemplate.update(1, 31);
+
+    User user = userTemplate.getUser(1);
+    
+    System.out.print("ID : " + user.getId() );
+    System.out.print(", Name : " + user.getName());
+    System.out.println(", Age : " + user.getAge());
   }
 
   @RequestMapping("/")
