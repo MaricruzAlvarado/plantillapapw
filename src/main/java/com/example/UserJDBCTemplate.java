@@ -18,6 +18,13 @@ public class UserJDBCTemplate implements UserDAO {
         return;
     }
 
+    public void create(User user) {
+        String SQL = "insert into User (name, age) values (?, ?)";
+        jdbcTemplateObject.update(SQL, user.getName(), user.getAge());
+        System.out.println("Registro creado = " + user.getName() + " Age = " + user.getAge());
+        return;
+    }
+
     public User getUser(Integer id) {
         String SQL = "select * from User where id = ?";
         User user = jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, new UserMapper());
@@ -38,9 +45,9 @@ public class UserJDBCTemplate implements UserDAO {
         return;
     }
     
-    public void update(Integer id, Integer age){
-        String SQL = "update User set age = ? where id = ?";
-        jdbcTemplateObject.update(SQL, age, id);
+    public void update(Integer id, String name, Integer age){
+        String SQL = "update User set age = ?, name = ? where id = ?";
+        jdbcTemplateObject.update(SQL, age, name, id);
         System.out.println("Actualizado ID = " + id );
         return;
     }

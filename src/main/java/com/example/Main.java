@@ -49,13 +49,27 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+
+    try (Connection connection = getConnection()) {
+      Statement stmt = connection.createStatement();
+      stmt.executeUpdate(
+        "CREATE TABLE IF NOT EXISTS User (" +
+          "ID INT NOT NULL AUTO_INCREMENT," +
+          "NAME VARCHAR(20) NOT NULL," +
+          "AGE INT NOT NULL," +
+          "PRIMARY KEY (ID)" +
+        ");"
+      );
+    } catch (Exception e) {
+      System.out.print("Super error");
+    }
     
     UserJDBCTemplate userTemplate = new UserJDBCTemplate();
     userTemplate.setDataSource(getConnection());
 
-    userTemplate.create("Alberto", 30);
-    userTemplate.create("Anthony", 22);
-    userTemplate.create("Ricky", 20);
+    // userTemplate.create("Alberto", 30);
+    // userTemplate.create("Anthony", 22);
+    // userTemplate.create("Ricky", 20);
 
     List<User> users = userTemplate.listUsers();
     
@@ -65,7 +79,7 @@ public class Main {
       System.out.println(", Edad : " + u.getAge());
     }
     
-    userTemplate.update(1, 31);
+    userTemplate.update(1, "Alberto", 31);
 
     User user = userTemplate.getUser(1);
     
@@ -79,7 +93,7 @@ public class Main {
     return "index";
   }
 
-  @RequestMapping("/catCiclismo")
+  @RequestMapping("/fabrizio")
   String catCiclismo() {
     return "catCiclismo";
   }
@@ -119,7 +133,7 @@ public class Main {
     }
   }
 
-  private static Connection getConnection() throws URISyntaxException, SQLException {
+  public static Connection getConnection() throws URISyntaxException, SQLException {
       URI jdbUri = new URI(System.getenv("JAWSDB_URL"));
 
       String username = jdbUri.getUserInfo().split(":")[0];
