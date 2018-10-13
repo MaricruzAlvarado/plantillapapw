@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout ('Nuevo Usuario', ~{::body}, 'editUser')}">
+  <body>
+    <form action="#" th:action="@{/updateUser}" th:object="${user}" method="post">
+      <input type="hidden" th:field="*{id}" value="${user.id}"/>
+      <p>Nombre: 
+        <input type="text" th:field="*{name}" value="${user.name}"/></p>
+      <p>Edad: 
+        <input type="number" th:field="*{age}"  value="${user.age}"/></p>
+      <p>
+        <input type="submit" value="Registrar" /></p>
+    </form>
+  </body>
+</html>

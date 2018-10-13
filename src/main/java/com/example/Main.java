@@ -79,13 +79,13 @@ public class Main {
       System.out.println(", Edad : " + u.getAge());
     }
     
-    userTemplate.update(1, "Alberto", 31);
+    // userTemplate.update(1, "Alberto", 31);
 
-    User user = userTemplate.getUser(1);
+    // User user = userTemplate.getUser(1);
     
-    System.out.print("ID : " + user.getId() );
-    System.out.print(", Name : " + user.getName());
-    System.out.println(", Age : " + user.getAge());
+    // System.out.print("ID : " + user.getId() );
+    // System.out.print(", Name : " + user.getName());
+    // System.out.println(", Age : " + user.getAge());
   }
 
   @RequestMapping("/")
