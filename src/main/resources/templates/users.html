@@ -23,6 +23,7 @@
             <td th:text="${u.name}">Alberto</td>
             <td th:text="${u.age}">31</td>
             <td>
+              <!-- https://stackoverflow.com/questions/25027801/how-to-set-thymeleaf-thfield-value-from-other-variable -->
                 <form action="#" th:action="@{/editUser}" th:object="${user}" method="post">
                     <input type="hidden" name="id" th:value="${u.id}">
                     <input type="hidden" name="name" th:value="${u.name}">

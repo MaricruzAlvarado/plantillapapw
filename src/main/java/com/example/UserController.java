@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class UserController {
     @GetMapping("/users")
     public String users(Model model) throws URISyntaxException, SQLException {
+        // https://stackoverflow.com/questions/32045271/how-to-pass-thobject-values-from-html-to-controller
         UserJDBCTemplate userTemplate = new UserJDBCTemplate();
         userTemplate.setDataSource(Main.getConnection());
         List<User> users = userTemplate.listUsers();
@@ -44,6 +45,7 @@ public class UserController {
 
     @PostMapping("/editUser")
     public String editUserForm(@ModelAttribute User user, RedirectAttributes redir) {
+        // https://stackoverflow.com/questions/24301114/passing-model-attribute-during-redirect-in-spring-mvc-and-avoiding-the-same-in-u
         redir.addFlashAttribute("user", user);
         return "editUser";
     }
