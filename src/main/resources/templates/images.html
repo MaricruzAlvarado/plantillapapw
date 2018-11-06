@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout ('Usuarios', ~{::body},'images')}">
+  
+  <body>
+    <h1>Todos los usuarios</h1>
+    <!--Table-->
+<table id="tablePreview" class="table">
+    <!--Table head-->
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <!--Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr th:each="i,iterStat : ${images}">
+            <th th:text="${i.id}">1</th>
+            <td th:text="${i.name}">Alberto</td>
+            <td th:text="${i.data}">31</td>
+            <td>
+              <!-- https://stackoverflow.com/questions/25027801/how-to-set-thymeleaf-thfield-value-from-other-variable -->
+                <form action="#" th:action="@{/editImage}" th:object="${image}" method="post">
+                    <input type="hidden" name="id" th:value="${i.id}">
+                    <input type="hidden" name="name" th:value="${i.name}">
+                    <input type="hidden" name="data" th:value="${i.data}">
+                    <input type="submit">
+                </form>
+            </td>
+            <td>Borrar</td>
+        </tr>
+      </tbody>
+      <!--Table body-->
+    </table>
+    <!--Table-->
+  </body>
+</html>
