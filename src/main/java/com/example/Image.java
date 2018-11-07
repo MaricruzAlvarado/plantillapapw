@@ -1,7 +1,5 @@
 package com.example;
 
-import java.sql.Blob;
-
 public class Image {
     private Integer id;
     private String name;

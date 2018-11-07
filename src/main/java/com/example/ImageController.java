@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +32,8 @@ public class ImageController {
     }
     
     @GetMapping("/image/{id}")
-    public void imageId(HttpServletResponse response, @PathVariable(value="id") final Integer id) throws URISyntaxException, SQLException, IOException {
+    public void imageId(HttpServletResponse response, 
+    @PathVariable(value="id") final Integer id) throws URISyntaxException, SQLException, IOException {
         ImageJDBCTemplate imageTemplate = new ImageJDBCTemplate();
         imageTemplate.setDataSource(Main.getConnection());
         Image image = imageTemplate.getImage(id);
@@ -60,7 +60,11 @@ public class ImageController {
     }
 
     @PostMapping("/image")
-    public String imageSubmit(@RequestParam("name") String name, @RequestParam("data") MultipartFile data, @ModelAttribute Image image, RedirectAttributes redir) throws URISyntaxException, SQLException, IOException {
+    public String imageSubmit(
+        @RequestParam("name") String name, 
+        @RequestParam("data") MultipartFile data,  // *
+        @ModelAttribute Image image, 
+        RedirectAttributes redir) throws URISyntaxException, SQLException, IOException {
         image.setName(name);
         image.setImage(data.getBytes());
 
